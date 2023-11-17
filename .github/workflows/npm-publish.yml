@@ -21,19 +21,24 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install  # or npm ci if you have package-lock.json
-    - name: Decode and display PROD_ENV_FILE
+    - name: Decode and display secrets
       run: |
-        echo "${{ secrets.PROD_ENV_FILE }}" | base64 -d > .env
+        echo "PORT=$(echo "${{ secrets.PORT }}" | base64 -d)" > .env
+        echo "MONGOURI=$(echo "${{ secrets.MONGOURI }}" | base64 -d)" >> .env
+        echo "SECRET=$(echo "${{ secrets.SECRET }}" | base64 -d)" >> .env
+        echo "EMAIL=$(echo "${{ secrets.EMAIL }}" | base64 -d)" >> .env
+        echo "PASSWORD=$(echo "${{ secrets.PASSWORD }}" | base64 -d)" >> .env
         echo "Contents of .env file:"
         cat .env
-    - name: Display PROD_ENV_FILE
-      run: echo "PROD_ENV_FILE=${{ env.PROD_ENV_FILE }}"
+    - name: Display secrets
+      run: cat .env
     - name: Debug .env file
       run: |
         echo "Current directory: $(pwd)"
         echo "Contents of .env file:"
         ls -la
         cat .env
+
 
 
 
