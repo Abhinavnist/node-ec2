@@ -21,8 +21,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install  # or npm ci if you have package-lock.json
-    - name: Set PROD_ENV_FILE
-      run: echo "PROD_ENV_FILE='${{ secrets.PROD_ENV_FILE }}'" >> $GITHUB_ENV
+    - name: Create .env file
+      run: echo "PROD_ENV_FILE='${{ secrets.PROD_ENV_FILE }}'" > .env
     - name: Display PROD_ENV_FILE
       run: echo "PROD_ENV_FILE=${{ env.PROD_ENV_FILE }}"
     - name: Debug .env file
@@ -31,6 +31,7 @@ jobs:
         echo "Contents of .env file:"
         ls -la
         cat .env
+
 
 
 
