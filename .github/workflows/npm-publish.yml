@@ -21,11 +21,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install  # or npm ci if you have package-lock.json
-    - name: Debug PROD_ENV_FILE secret
-      run: echo "Secret value: ${{ secrets.PROD_ENV_FILE }}"
-    - name: Create .env file
+    - name: Decode and display PROD_ENV_FILE
       run: |
-        echo "PROD_ENV_FILE='${{ secrets.PROD_ENV_FILE }}'" > .env
+        echo "${{ secrets.PROD_ENV_FILE }}" | base64 -d > .env
         echo "Contents of .env file:"
         cat .env
     - name: Display PROD_ENV_FILE
@@ -36,7 +34,6 @@ jobs:
         echo "Contents of .env file:"
         ls -la
         cat .env
-
 
 
 
