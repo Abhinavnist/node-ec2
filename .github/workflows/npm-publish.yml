@@ -22,8 +22,10 @@ jobs:
         cache: 'npm'
     - run: npm install  # or npm ci if you have package-lock.json
     - run: |
-        touch .env
-        echo "${{ secrets.PROD_ENV_FILE }}" >> .env
+        echo "PROD_ENV_FILE=${{ secrets.PROD_ENV_FILE }}" > .env
+    - name: Display .env file
+      run: cat .env
+
 
     
     
