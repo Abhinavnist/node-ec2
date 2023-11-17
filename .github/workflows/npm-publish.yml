@@ -23,11 +23,11 @@ jobs:
     - run: npm install  # or npm ci if you have package-lock.json
     - name: Decode and display secrets
       run: |
-        echo "PORT=$(echo "${{ secrets.PORT }}" | base64 -d)" > .env
-        echo "MONGOURI=$(echo "${{ secrets.MONGOURI }}" | base64 -d)" >> .env
-        echo "SECRET=$(echo "${{ secrets.SECRET }}" | base64 -d)" >> .env
-        echo "EMAIL=$(echo "${{ secrets.EMAIL }}" | base64 -d)" >> .env
-        echo "PASSWORD=$(echo "${{ secrets.PASSWORD }}" | base64 -d)" >> .env
+        echo "PORT=$(echo "${{ secrets.PORT }}"" > .env
+        echo "MONGOURI=$(echo "${{ secrets.MONGOURI }}"" >> .env
+        echo "SECRET=$(echo "${{ secrets.SECRET }}"" >> .env
+        echo "EMAIL=$(echo "${{ secrets.EMAIL }}"" >> .env
+        echo "PASSWORD=$(echo "${{ secrets.PASSWORD }}"" >> .env
         echo "Contents of .env file:"
         cat .env
     - name: Display secrets
