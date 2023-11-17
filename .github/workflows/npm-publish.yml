@@ -12,8 +12,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [14.x, 16.x]  # Adjust based on the latest LTS version
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -21,10 +20,32 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: |
+    - run: npm install  # or npm ci if you have package-lock.json
+    - name: Decode and display secrets
+      run: |
         touch .env
-        echo "${{ secrets.PROD_ENV_FILE }}" >  .env
+        echo PORT= ${{ secrets.PORT }} >> .env
+        echo MONGOURI= ${{ secrets.MONGOURI }} >> .env
+        echo SECRET= ${{ secrets.SECRET }} >> .env
+        echo EMAIL= ${{ secrets.EMAIL }} >> .env
+        echo PASSWORD= ${{ secrets.PASSWORD }} >> .env
+        echo "Contents of .env file:"
+        cat .env
+    - name: Display secrets
+      run: cat .env
+    - name: Debug .env file
+      run: |
+        echo "Current directory: $(pwd)"
+        echo "Contents of .env file:"
+        ls -la
+        cat .env
+
+
+
+
+
+
+
     
     
 
