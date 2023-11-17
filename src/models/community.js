@@ -1,5 +1,20 @@
 const mongoose = require("mongoose")
 
+const commentSchema = new mongoose.Schema(
+  {
+    body: {
+      type: String,
+      required: true,
+    },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+  },
+  { timestamps: true }
+)
+
 const answerSchema = new mongoose.Schema(
   {
     body: {
@@ -11,6 +26,7 @@ const answerSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    comments: [commentSchema],
   },
   { timestamps: true }
 )
