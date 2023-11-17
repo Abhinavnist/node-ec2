@@ -29,7 +29,9 @@ jobs:
       run: |
         echo "Current directory: $(pwd)"
         echo "Contents of .env file:"
+        ls -la
         cat .env
+
 
 
 
