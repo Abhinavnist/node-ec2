@@ -20,7 +20,6 @@ app.get("/", (req, res) => {
   return res.json({ success: "Server is live" })
 })
 
-app.use("/api", apiRoutes)
 app.use("/api", childRoutes)
 app.use("/api/auth", authRoutes)
 // app.use("/api", subscriptionRoutes)

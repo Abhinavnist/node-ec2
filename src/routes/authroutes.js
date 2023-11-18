@@ -6,13 +6,14 @@ const {
   generateOTP,
   verifyOTP,
   resetPassword,
+  forgotPassword,
 } = require("../controllers/index")
-const forgotPasswordController = require("../controllers/authController/forgotPassword")
+
 router.post("/signup", signupController)
 router.post("/login", loginController)
 router.get("/generateOTP", generateOTP)
 router.put("/resetPassword", resetPassword)
-router.post("/forgetPassword", forgotPasswordController)
+router.post("/forgetPassword", forgotPassword)
 router.post("/verifyOTP", verifyOTP)
 
 module.exports = router
