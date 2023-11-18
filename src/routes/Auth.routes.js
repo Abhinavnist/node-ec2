@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const controllers = require("../controllers/index")
+// const controllers = require("../controllers/index")
 const {
   loginController,
   signupController,

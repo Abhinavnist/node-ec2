@@ -4,6 +4,6 @@ module.exports = {
   generateOTP: require("./authController/generateOTP"),
   verifyOTP: require("./authController/verifyOTP"),
   resetPassword: require("./authController/resetPassword"),
-  UserController: require("./user-controller"),
-  PlanController: require("./plan-controller"),
+  userController: require("./user-controller"),
+  planController: require("./plan-controller"),
 }
