@@ -1,7 +1,6 @@
 const express = require("express")
 const { ServerConfig } = require("./config/index")
 const { ConnectDB } = require("./config")
-const apiRoutes = require("./routes")
 const connectDB = require("./config/db-config")
 const authRoutes = require("../src/routes/auth.routes")
 const childRoutes = require("./routes/childRoutes")
