@@ -1,5 +1,5 @@
 const router = require("express").Router()
-// const controllers = require("../controllers/index")
+
 const {
   loginController,
   signupController,
@@ -7,7 +7,7 @@ const {
   verifyOTP,
   resetPassword,
 } = require("../controllers/index")
-const forgotPasswordController = require("../controllers/AuthController/forgotPassword")
+const forgotPasswordController = require("../controllers/authController/forgotPassword")
 router.post("/signup", signupController)
 router.post("/login", loginController)
 router.get("/generateOTP", generateOTP)
