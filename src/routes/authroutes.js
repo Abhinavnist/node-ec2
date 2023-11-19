@@ -1,13 +1,10 @@
 const router = require("express").Router()
-
-const {
-  loginController,
-  signupController,
-  generateOTP,
-  verifyOTP,
-  resetPassword,
-  forgotPassword,
-} = require("../controllers/index")
+const loginController = require("../controllers/authcontroller/logincontroller")
+const signupController = require("../controllers/authcontroller/signupcontroller")
+const generateOTP = require("../controllers/authcontroller/generateOTP")
+const resetPassword = require("../controllers/authcontroller/resetPassword")
+const forgotPassword = require("../controllers/authcontroller/forgotPassword")
+const verifyOTP = require("../controllers/authcontroller/verifyOTP")
 
 router.post("/signup", signupController)
 router.post("/login", loginController)
