@@ -3,6 +3,7 @@ const Review = require("../models/review")
 // Add a new review
 exports.addReview = async (req, res) => {
   try {
+    
     const user = req.user.userId // Get userId from the middleware
     const { product, comment, rating } = req.body
 
