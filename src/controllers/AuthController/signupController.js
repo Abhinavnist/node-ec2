@@ -1,4 +1,4 @@
-const { User } = require("../../Models/index")
+const { User } = require("../../models/usermodel")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 const { sendCustomEmail } = require("../emailController")

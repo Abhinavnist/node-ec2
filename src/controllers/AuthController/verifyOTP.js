@@ -1,4 +1,4 @@
-const { User } = require("../../Models/index")
+const { User } = require("../../models/usermodel")
 /** POST: http://localhost:4000/api/auth/verifyOTP */
 const verifyOTP = async (req, res) => {
   const { email, otp } = req.body

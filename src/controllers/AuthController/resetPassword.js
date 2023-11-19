@@ -1,4 +1,4 @@
-const { User } = require("../../Models/index")
+const { User } = require("../../models/usermodel")
 const bcrypt = require("bcrypt")
 /** PUT: http://localhost:4000/api/auth/resetPassword */
 const resetPassword = async (req, res) => {

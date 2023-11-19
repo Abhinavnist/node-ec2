@@ -25,20 +25,20 @@ exports.getQuestionById = async (req, res) => {
 }
 
 // Create a new question
-// exports.createQuestion = async (req, res) => {
-//   const question = new Question({
-//     title: req.body.title,
-//     body: req.body.body,
-//     user: req.body.user, // Assuming user ID is provided in the request body
-//   })
+exports.createQuestion = async (req, res) => {
+  const question = new Question({
+    title: req.body.title,
+    body: req.body.body,
+    user: req.body.user, // Assuming user ID is provided in the request body
+  })
 
-//   try {
-//     const newQuestion = await question.save()
-//     res.status(201).json(newQuestion)
-//   } catch (error) {
-//     res.status(400).json({ message: error.message })
-//   }
-// }
+  try {
+    const newQuestion = await question.save()
+    res.status(201).json(newQuestion)
+  } catch (error) {
+    res.status(400).json({ message: error.message })
+  }
+}
 
 // Update a question
 exports.updateQuestion = async (req, res) => {
