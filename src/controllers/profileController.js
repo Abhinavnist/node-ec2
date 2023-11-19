@@ -18,34 +18,6 @@ exports.getUserProfile = async (req, res) => {
   }
 }
 
-// Update user profile details
-// exports.updateUserProfile = async (req, res) => {
-//   try {
-//     // Validate the request body
-//     const errors = validationResult(req)
-//     if (!errors.isEmpty()) {
-//       return res.status(400).json({ errors: errors.array() })
-//     }
-
-//     // Fetch the user by ID
-//     let user = await User.findById(req.user.userId)
-
-//     if (!user) {
-//       return res.status(404).json({ error: "User not found" })
-//     }
-
-//     user.username = req.body.username
-//     user.contact = req.body.contact
-
-//     // Save the updated user object
-//     user = await user.save()
-
-//     res.status(200).json(user)
-//   } catch (error) {
-//     res.status(500).json({ error: "Internal server error" })
-//   }
-// }
-
 exports.updateUserProfile = async (req, res) => {
   try {
     // Check if the user making the request is the same as the user whose profile is being updated
